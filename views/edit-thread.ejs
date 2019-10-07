@@ -1,0 +1,33 @@
+<% include header %>
+
+<h2> Edit thread</h2>
+<% if (ids.equals(threads.author._id)) { %>
+<form method = "post" role = "form">
+
+    <div class = "form-group">
+        <label for = "title">Title:</label>
+        <input type = "text" class = "form control" id = "title"
+        name = "title" placeholder="<%=threads.title%>" required>
+    </div>
+    <div class="form-group"></div>
+
+    <div class = "form-group">
+        <label for = "content">Content:</label>
+        <input type = "text" class = "form control" id = "content"
+        name = "content" placeholder="<%=threads.content%>" required>
+    </div>
+    <div class="form-group"></div>
+
+
+    <input type="submit" value="SAVE" class="btn btn-primary">
+</form>
+
+<% }  else { %>
+    NOT AUTHORIZED
+<% } %>
+
+<a href= '/threads'class="btn btn-primary pull-right">
+    BACK
+  </a>
+
+<% include footer %>

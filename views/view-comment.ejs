@@ -1,0 +1,56 @@
+<% include header %>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <%= threads.title %>
+    </div>
+    <div class="panel-body">
+        <%= threads.content %>
+    </div>
+</div>
+<% if (threads.image!=null) { %>
+    <br>
+        <img src="/images/<%=threads.image%>" alt="Thread pic">
+
+ <% } %>   
+<% if (threads.comments.length) { %>
+    <h1> Comments: </h1>
+    <% threads.comments.forEach(function(entry) { %>
+<div class="panel panel-default">
+    <div class="panel-heading">
+            <%= entry.author.firstname %>
+            <%= entry.author.lastname %>
+            
+    </div>  
+    <div class="panel-body">
+        <%= entry.comment %>
+        <% if (entry.author._id.equals(ids)) { %> 
+            <a href = "/threads/<%= threads._id %>/comments/edit/<%= entry._id %>" class="btn btn-primary pull-right"
+                onclick='f'>
+                    EDIT
+            </a>
+            <a href = "/threads/<%= threads._id %>/comments/delete/<%= entry._id %>" class="btn btn-primary pull-right"
+                onclick='f'>
+                    DELETE
+             </a>
+        <% } %>
+
+    </div>
+</div>
+    <% }) %>
+<% } %>
+
+<form method="post" role="form">
+    <div class="form-group">
+        <label for="comment">Comment:</label>
+
+         <input type="text" class="form-control" id="comment"
+          name="comment" placeholder="Insert comment here" required>
+    </div>
+  <div class="form-group">
+<input type="submit" value="Add comment" class="btn btn-primary"> 
+</form>
+
+<a href= '/threads'class="btn btn-primary pull-right">
+    BACK
+</a>
+<% include footer %>

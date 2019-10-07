@@ -1,0 +1,39 @@
+<% include header %>
+<h2>New thread entry</h2>
+
+<form method="post" role="form" enctype="multipart/form-data"> 
+  
+  <div class="form-group">
+    <label for="title">Title:</label>
+
+    <input type="text" class="form-control" id="title"
+     name="title" placeholder="Insert title here" required>
+  </div>
+  <div class="form-group">
+
+    <div class="form-group">
+    <label for="content">Content:</label>
+
+    <input type="text" class="form-control" id="content"
+     name="content" placeholder="Insert content here" required>
+  </div>
+  <div class="form-group">
+
+    <div class="form-group">
+    <label for="Image">Image:</label>
+
+    <input type="file" class="form-control" id="image"
+     name="image" placeholder="Insert picture here">
+  </div>
+  <div class="form-group">
+
+
+
+    <input type="submit" value="SAVE" class="btn btn-primary">
+</form>
+
+<a href= '/threads'class="btn btn-primary pull-right">
+  BACK
+</a>
+
+<% include footer %>

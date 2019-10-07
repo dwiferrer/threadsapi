@@ -1,0 +1,28 @@
+<% include header %>
+
+<h2> Delete thread</h2>
+<% if (ids.equals(threads.author._id)) { %>
+<form method = "post" role = "form">
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <%= threads.title %>
+    </div>
+    <div class="panel-body">
+        <%= threads.content %>
+    </div>
+</div>
+
+<input type="submit" value="ARE YOU SURE?" class="btn btn-primary">
+</form>
+
+<% }  else { %>
+    NOT AUTHORIZED
+<% } %>
+
+<a href= '/threads'class="btn btn-primary pull-right">
+    BACK
+</a>
+
+
+<% include footer %>

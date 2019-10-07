@@ -1,0 +1,33 @@
+<% include header %>
+<% if (threads.length) { %>
+  <% threads.forEach(function(thread) { %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= thread.title %>
+      </div>
+      <div class="panel-body">
+        <%= thread.content %><br>
+        Written by:
+        <%= thread.author.username %>
+      <a href= '/threads/view/<%= thread._id %>'class="btn btn-primary pull-right">
+        VIEW
+    </a>
+  
+
+    <a href= '/threads/edit/<%= thread._id%>'class="btn btn-primary pull-right"
+      onclick='f'>
+        EDIT
+    </a>
+    <a href= '/threads/delete/<%= thread._id%>'class="btn btn-primary pull-right"
+      onclick='f'>
+        DELETE
+    </a>
+    
+
+      </div>
+    </div>
+  <% }) %>
+<% } else { %>
+  No entries! <a href="/threads/create">Add one!</a>
+<% } %>
+<% include footer %>
